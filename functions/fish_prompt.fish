@@ -3,6 +3,9 @@
 
 function __user_host
   set -l content 
+  if set -q SSH_CLIENT
+    echo -n (set_color --bold blue) -SSH- (set_color normal)
+  end
   if [ (id -u) = "0" ];
     echo -n (set_color --bold red)
   else
